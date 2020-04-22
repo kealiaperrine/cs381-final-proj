@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CombatMgr : MonoBehaviour
 {
+
+    public LineRenderer line;
+
     public static CombatMgr inst;
     private void Awake() {
         inst = this;
@@ -20,13 +23,17 @@ public class CombatMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(1))
+        /*if(Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, layerMask))
             {
                 Debug.DrawLine(Camera.main.transform.position, hit.point, Color.yellow, 2);
+              //  line = LineMgr.inst.CreateLine(Player.inst.position, hit.point);
+               // line.gameObject.SetActive(false);
+               // line.SetPosition(1, hit.point);
+               // LineMgr.inst.DestroyLR(line);
             }
-        }
+        }*/
         
     }
 }

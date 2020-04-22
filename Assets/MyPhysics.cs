@@ -22,12 +22,10 @@ public class MyPhysics : MonoBehaviour
       //  { ;  }
         if (monster.speed < monster.desiredSpeed)
         {
-            Debug.Log("SPEED LESS THAN DESIRED");
             monster.speed = monster.speed + monster.acceleration * Time.deltaTime;
         }
         else if (monster.speed > monster.desiredSpeed)
         {
-            Debug.Log("SPEED MORE THAN DESIRED");
             monster.speed = monster.speed - monster.acceleration * Time.deltaTime;
         }
         monster.speed = Utils.Clamp(monster.speed, monster.minSpeed, monster.maxSpeed);

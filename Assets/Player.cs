@@ -12,9 +12,11 @@ public class Player : MonoBehaviour
     }
 
     public GameObject playerEntity;
-    public float playerMoveSpeed = 5;
+    public float playerMoveSpeed =2;
     public Vector3 position;
     public Vector3 velocity;
+
+    public int killCount;
 
     // Start is called before the first frame update
     void Start()
@@ -28,32 +30,38 @@ public class Player : MonoBehaviour
     void Update()
     {
         velocity = Vector3.zero;
+        position = transform.localPosition;
         if (Input.GetKey(KeyCode.W))
         {
-            playerEntity.transform.Translate(Vector3.forward * Time.deltaTime * playerMoveSpeed);
+            //playerEntity.transform.Translate(Vector3.forward * Time.deltaTime * playerMoveSpeed);
             velocity = (Vector3.forward * Time.deltaTime * playerMoveSpeed);
-            position += (Vector3.forward * Time.deltaTime * playerMoveSpeed);
+            //position += (Vector3.forward * Time.deltaTime * playerMoveSpeed);
         }            
         if (Input.GetKey(KeyCode.S))
         {
-            playerEntity.transform.Translate(Vector3.back * Time.deltaTime * playerMoveSpeed);
+            //playerEntity.transform.Translate(Vector3.back * Time.deltaTime * playerMoveSpeed);
             velocity = Vector3.back * Time.deltaTime * playerMoveSpeed;
-            position += Vector3.back * Time.deltaTime * playerMoveSpeed;
+            //position += Vector3.back * Time.deltaTime * playerMoveSpeed;
         }            
         if (Input.GetKey(KeyCode.A))
         {
-            playerEntity.transform.Translate(Vector3.left * Time.deltaTime * playerMoveSpeed);
+            //playerEntity.transform.Translate(Vector3.left * Time.deltaTime * playerMoveSpeed);
             velocity = Vector3.left * Time.deltaTime * playerMoveSpeed;
-            position += Vector3.left * Time.deltaTime * playerMoveSpeed;
+            //position += Vector3.left * Time.deltaTime * playerMoveSpeed;
         }            
         if (Input.GetKey(KeyCode.D))
         {
-            playerEntity.transform.Translate(Vector3.right * Time.deltaTime * playerMoveSpeed);
+            //playerEntity.transform.Translate(Vector3.right * Time.deltaTime * playerMoveSpeed);
             velocity = Vector3.right * Time.deltaTime * playerMoveSpeed;
-            position += Vector3.right * Time.deltaTime * playerMoveSpeed;
+            //position += Vector3.right * Time.deltaTime * playerMoveSpeed;
         }
-            
-        
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
+
         //change direction player is facing
     }
 }
+

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterMgr : MonoBehaviour
 {
     public static MonsterMgr inst;
-
+    public Player player;
     public List<Monster> monsters;
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class MonsterMgr : MonoBehaviour
                 //Debug.Log("ADDING INTERCEPT ");
                 Intercept intercept = new Intercept(mon, Player.inst);
                 UnitAI uai = mon.GetComponent<UnitAI>();
-                uai.SetCommand(intercept);
+                uai.AddCommand(intercept);
                 //Debug.Log(mon.velocity);
 
             }
@@ -42,7 +42,7 @@ public class MonsterMgr : MonoBehaviour
     public float InterceptRadiusSqr = 50.0f;
     bool PlayerCloseEnough(Monster mon)
     {
-        float distanceSq = (mon.position - Player.inst.position).sqrMagnitude;
+        float distanceSq = (mon.position - player.position).sqrMagnitude;
         //Debug.Log(distanceSq);
         //Debug.Log(mon.position);
         //Debug.Log(Player.inst.position);

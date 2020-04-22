@@ -16,7 +16,7 @@ public class Intercept : Command
 
     public override void Init()
     {
-        Debug.Log("Intercepting");
+       // Debug.Log("Intercepting");
     }
 
     public override void Tick()
@@ -25,8 +25,8 @@ public class Intercept : Command
         float dh = ComputePredictiveDH(/*offset maybe?*/);
         monster.desiredHeading = dh;
         monster.desiredSpeed = monster.maxSpeed;
-        Debug.Log(monster.desiredSpeed);
-        Debug.Log(monster.speed);
+       // Debug.Log(monster.desiredSpeed);
+       //Debug.Log(monster.speed);
     }
 
     public float doneDistanceSq = 3.0f;
@@ -38,7 +38,8 @@ public class Intercept : Command
     public override void Stop()
     {
         //Debug.Log("DONE");
-        //monster.desiredSpeed = 0;
+        monster.desiredSpeed = 0;
+        monster.speed = 0;
         //player.desiredSpeed = 0; maybe? rather than offset 
         // I dont think i want everything else he has
     }
@@ -58,7 +59,7 @@ public class Intercept : Command
         float dh;
         movePosition = player.position /*add offset*/;
         diff = movePosition - monster.position;
-        Debug.Log(diff);
+       // Debug.Log(diff);
         relativeVelocity = monster.velocity - player.velocity;
         predictedInterceptTime = diff.magnitude / relativeVelocity.magnitude;
         if (predictedInterceptTime >= 0)
